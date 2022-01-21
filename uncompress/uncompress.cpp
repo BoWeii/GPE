@@ -46,7 +46,7 @@ int main() {
            while(is_dig(buffer[index])){
                num=num*10+(buffer[index++]-'0');
            }
-           Node *target=head,*pre;
+           Node *target=head,*pre=(Node *)malloc(sizeof(Node *));
            for(int i=1;i<num;i++){
                pre=target;
                target=target->next;
