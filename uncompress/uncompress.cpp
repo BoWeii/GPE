@@ -7,7 +7,7 @@
 using namespace std;
 
 bool is_dig(char data) {
-    return data > '0' && data <= '9';
+    return data >= '0' && data <= '9';
 }
 
 bool is_aph(char data) {
@@ -23,7 +23,7 @@ int main() {
     ifstream ifs;
     ofstream ofs;
     Node* head = NULL;
-    char buffer[9999] = { 0 };
+    char buffer[999999] = { 0 };
     ifs.open("input");
     ofs.open("output");
     if (!ifs.is_open()) {
@@ -31,13 +31,12 @@ int main() {
     }
     else {
         ifs.read(buffer, sizeof(buffer));
-        cout << buffer;
         ifs.close();
     }
     int index = 0;
 
 
-    while (buffer[index] != '0') {
+    while (true) {
         if (is_dig(buffer[index])) {
            if(buffer[index]=='0'){
                break;
@@ -46,7 +45,7 @@ int main() {
            while(is_dig(buffer[index])){
                num=num*10+(buffer[index++]-'0');
            }
-           Node *target=head,*pre=(Node *)malloc(sizeof(Node *));
+           Node *target=head,*pre=NULL;
            for(int i=1;i<num;i++){
                pre=target;
                target=target->next;
@@ -74,6 +73,6 @@ int main() {
             ofs << buffer[index++];
         }
     }
-
+    ofs.close();
     return 0;
 }
