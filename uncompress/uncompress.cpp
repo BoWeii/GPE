@@ -20,56 +20,47 @@ struct Node {
 };
 
 int main() {
-    ifstream ifs;
-    ofstream ofs;
     Node* head = NULL;
-    char buffer[999999] = { 0 };
-    ifs.open("249411.in");
-    ofs.open("249411.out");
-    if (!ifs.is_open()) {
-        cout << "Failed to open file.\n";
-    }
-    else {
-        ifs.read(buffer, sizeof(buffer));
-        ifs.close();
-    }
+    char ch = getchar();
     int index = 0;
     while (true) {
-        if (is_dig(buffer[index])) {
-           if(buffer[index]=='0'){
+        if (is_dig(ch)) {
+           if(ch=='0'){
                break;
            }
            int num=0;
-           while(is_dig(buffer[index])){
-               num=num*10+(buffer[index++]-'0');
+           while(is_dig(ch)){
+               num=num*10+(ch-'0');
+               ch = getchar();
            }
            Node *target=head,*pre=NULL;
            for(int i=1;i<num;i++){
                pre=target;
                target=target->next;
            }
-            ofs<<target->word;
+            cout<<target->word;
            if(target!=head){
                pre->next=target->next;
                target->next=head;
                head=target;
            }
         }
-        else if (is_aph(buffer[index])) {
+        else if (is_aph(ch)) {
             string word="";
-            while(is_aph(buffer[index])){
-                word+=buffer[index++];
+            while(is_aph(ch)){
+                word+=ch;
+                ch = getchar();
             }
             Node *t=new Node;
             t->word=word;
             t->next=head;
             head=t;
-            ofs<<word;
+            cout<<word;
         }
         else {
-            ofs << buffer[index++];
+            cout << ch;
+            ch=getchar();
         }
     }
-    ofs.close();
     return 0;
 }
