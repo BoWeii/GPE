@@ -24,8 +24,8 @@ int main() {
     ofstream ofs;
     Node* head = NULL;
     char buffer[999999] = { 0 };
-    ifs.open("input");
-    ofs.open("output");
+    ifs.open("249411.in");
+    ofs.open("249411.out");
     if (!ifs.is_open()) {
         cout << "Failed to open file.\n";
     }
@@ -34,8 +34,6 @@ int main() {
         ifs.close();
     }
     int index = 0;
-
-
     while (true) {
         if (is_dig(buffer[index])) {
            if(buffer[index]=='0'){
@@ -60,8 +58,7 @@ int main() {
         else if (is_aph(buffer[index])) {
             string word="";
             while(is_aph(buffer[index])){
-                word+=buffer[index];
-                index++;
+                word+=buffer[index++];
             }
             Node *t=new Node;
             t->word=word;
