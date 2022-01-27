@@ -41,7 +41,7 @@ int get_num(vector<coord> data)
     // cout << "all line=";
     // for (vector<line>::iterator i = all.begin(); i != all.end(); i++)
     // {
-    //     printf("contain (%d,%d) and (%d,%d)\n", i->x1, i->y1, i->x2, i->y2);
+    //     printf("all line (%d,%d) and (%d,%d)\n", i->x1, i->y1, i->x2, i->y2);
     // }
     // cout<<"=========\n";
     for (vector<line>::iterator i = all.begin(); i != all.end(); i++)
@@ -76,7 +76,6 @@ int main()
 {
     int times = 0;
     cin >> times;
-    vector<int> res;
     while (times != 0)
     {
         int num;
@@ -95,11 +94,8 @@ int main()
         // for(vector<coord>::iterator it=data.begin();it!=data.end();it++){
         //     cout<<"x="<<it->x<<" y="<<it->y<<endl;
         // }
-        res.push_back(get_num(data));
+        cout << get_num(data)<<endl;
         times--;
-    }
-    for(vector<int>::iterator it=res.begin();it!=res.end();it++){
-        cout<<*it<<endl;
     }
     return 0;
 }
