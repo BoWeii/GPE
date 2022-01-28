@@ -8,13 +8,10 @@
 #include <algorithm>
 using namespace std;
 
-int get_palindromes(string a, string b)
+int get_duplicate_num(string a, string b)
 {
-    string res;
-
     for (int i = 0; i < a.size() - 1; i++)
     {
-        // bool same=true;
         for (int j = 0; j < b.size(); j++)
         {
             if (a[i + j] != b[j])
@@ -40,10 +37,9 @@ int main()
         {
             data_r += data[i];
         }
-        // cout<<"data="<<data<<" len="<<data.size();
-        int count = get_palindromes(data, data_r);
-        // cout<<"count="<<count<<endl;
+        int count = get_duplicate_num(data, data_r);
         string temp = "";
+        cout<<"count=="<<count<<endl;
         if (count != data.size())
         {
             for (int i = count ; i < data_r.size(); i++)
