@@ -39,7 +39,7 @@ int main()
         }
         int count = get_duplicate_num(data, data_r);
         string temp = "";
-        cout<<"count=="<<count<<endl;
+        // cout<<"count=="<<count<<endl;
         if (count != data.size())
         {
             for (int i = count ; i < data_r.size(); i++)
